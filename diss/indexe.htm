@@ -1,0 +1,163 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Thesis - Development of an Integrated Solution for Module Generation in TCA Architecture for macOS - Kovalenko Gleb Vasilyevich </title>
+  <link rel="stylesheet" type="text/css" href="../css/master_style.css">
+</head>
+
+<body lang="en">
+
+	<div id="topblock">
+		<div id="langbox">
+			<a href="index.htm"><img src="../images/ru.png" alt="Russian" title="Russian" width="24" height="20" border=0></a> 
+		</div>
+	</div>
+	<div id="header">
+		<div id="photomag">
+			<a href="../ivanov_big.jpg"><img src="../photo.jpg" width=330 height=240 title="Студент КубГУ Коваленко Глеб Васильевич" alt="Студент КубГУ Коваленко Глеб Васильевич" border=0></a>
+		</div>
+		<div id="headertext">
+			<h1 class="hdr">Kovalenko Gleb Vasilievich</h1>
+			<h3 class="hdr">Faculty of Computer Technology and Applied Mathematics</h3>
+			<h3 class="hdr">Department of Information Technologies</h3>
+			<h3 class="hdr">Specialization: "Programming and Information Technologies"</h3>
+			<h2 class="hdr">Development of an Integrated Solution for Module Generation on TCA Architecture for macOS</h2>
+			<h3 class="hdr">Scientific Advisor: PhD in Physics and Mathematics, Associate Professor Lukashik Elena Pavlovna</h3>
+		</div>
+	</div>
+
+	<div id="middleblock">
+		
+		<div id="menu">
+			<a class="button color" href="../index.htm">Resume</a>
+			<a class="button color" href="../bio/index.htm">Biography</a>
+			<a class="button colorfix">Thesis</a>
+			<a class="button color" href="../library/index.htm">Library</a>
+			<a class="button color" href="../links/index.htm">Links</a>
+		</div>
+		
+		<div id="maintext">
+			
+			<h2>Thesis on Graduation Work</h2>
+			
+			<h2>Contents</h2>
+
+			<ul class=content>
+				<li class=ct1><a href="#p0">Introduction</a>
+				<li class=ct1><a href="#p1">1. Relevance of the Topic</a>
+				<li class=ct1><a href="#p2">2. Research Goals, Objectives, and Expected Results</a>
+				
+				<li class=ct1><a href="#p3">3. Review of Existing Solutions</a>
+				<li class=ct2><a href="#p31">3.1 Platforms for Automatic Code Generation</a>
+				<li class=ct2><a href="#p32">3.2 Approaches to Developing in TCA Architecture</a>
+				
+				<li class=ct1><a href="#p4">4. Description of the Integrated Solution</a>
+				<li class=ct1><a href="#p5">Conclusions</a>
+				
+				<li class=ct1><a href="#ref">References</a>
+			</ul>
+			
+			<a name=p0></a>
+			<h2>Introduction</h2>
+			
+			<p>
+			In recent years, The Composable Architecture (TCA) has established itself as an effective approach for creating scalable, flexible, and testable applications, especially within the Apple ecosystem. Using this architecture allows code standardization and seamless integration of business logic into modules. With the growing popularity of TCA among macOS developers, an important challenge has emerged: creating a tool that automates the TCA module generation process. 
+			</p>
+			<p>
+			The purpose of this work is to research and develop such an integrated solution, which will simplify the process of creating modules in TCA architecture, provide configuration flexibility that meets user needs, and reduce the time spent on development.
+			</p>
+			
+			<a name=p1></a>
+			<h2>1. Relevance of the Topic</h2>
+			
+			<p>
+			As the scale and complexity of applications increase, it becomes increasingly difficult for developers to manage logic and components. TCA provides powerful tools for creating modular systems, which simplifies maintenance and improves code testability. However, manually creating modules in TCA requires significant time, which can slow down the development process and lead to errors. To address this issue, a tool is needed for automatically generating TCA modules, which will simplify the process of TCA development and integration in large projects.
+			</p>
+			
+			<a name='p2'></a>
+			<h2>2. Research Goals, Objectives, and Expected Results</h2>
+			
+			<p>The goal of this study is to create a tool that will automate the process of generating modules in TCA architecture for macOS, allowing configuration of module parameters according to project requirements.</p>
+			
+			<p>Main research objectives:</p>
+			<ol>
+				<li>Analyze existing solutions for automatic code generation, including their strengths and weaknesses.</li>
+				<li>Develop and adapt templates for module generation that meet the requirements of the TCA architecture and the macOS platform.</li>
+				<li>Create a parameter configuration system that allows the developer to adapt generated code to specific project needs.</li>
+				<li>Evaluate the effectiveness of the developed solution in real-world macOS project scenarios.</li>
+			</ol>
+			
+			<a name=p3></a>
+<h2>3. Review of Existing Solutions</h2>
+
+<a name=p31></a>
+<h3>3.1 Platforms for Automatic Code Generation</h3>
+
+<p>Several platforms on the market for automatic code generation are widely used in iOS and macOS development. However, each has its unique features, benefits, and limitations when applied to TCA architecture. Well-known tools such as <b>SwiftGen</b> and <b>Sourcery</b> enable developers to automate code generation and work with templates, but they do not provide built-in support for creating modules in TCA. Below is an overview of their capabilities and analysis of their applicability to TCA tasks:</p>
+
+<ul>
+    <li><b>SwiftGen</b> � one of the most popular tools for code generation in the Swift ecosystem, widely used for automatic code generation to work with resources (e.g., string values, images, colors). SwiftGen reduces errors associated with incorrect resource references and provides convenient templates for automatic code updates when new resources are added to a project. However, SwiftGen does not provide the flexibility to create specialized TCA modules and requires custom template setup for TCA integration. In this work, we consider the possibility of adapting SwiftGen templates to create ready-made components that match the TCA structure.</li>
+
+    <li><b>Sourcery</b> � another powerful tool aimed at code auto-generation based on templates. Sourcery allows developers to create complex structures and generate boilerplate code based on annotations and metadata. This tool is actively used in projects requiring automatic generation of types, protocols, and other Swift elements. Sourcery is suitable for creating repetitive structures; however, working with TCA architecture requires significant setup and development of specific templates, as TCA is not supported out of the box. For the purposes of this work, Sourcery could be useful for automatically generating models, reducers, and other TCA elements, with strict adherence to their organization requirements.</li>
+
+    <li><b>GraphQL Codegen</b> � a tool used to auto-generate models based on a GraphQL schema. This tool can also be adapted for use in TCA projects where ready-made models and types are needed. However, it is limited in its application as it focuses on data handling rather than structuring business logic within TCA.</li>
+</ul>
+
+<p>The main takeaway from this review of existing platforms is that they provide auto-generation for specific tasks but require significant adaptation for TCA integration. This study proposes creating a specialized tool that considers TCA specifics and allows generated components to be flexibly customized. In particular, this tool should be able to generate state editors, effects, actions, and dependencies consistent with the TCA architecture.</p>
+
+<a name=p32></a>
+<h3>3.2 Approaches to Developing in TCA Architecture</h3>
+
+<p><b>The Composable Architecture (TCA)</b>, developed by Point-Free, offers a structured approach to application development focusing on composition, modularity, and testability. TCA is one of the most modern solutions for building applications on Apple platforms and includes key concepts such as <b>Store</b>, <b>Reducer</b>, <b>Environment</b>, and <b>Effect</b>. These elements provide a clear separation of responsibilities and help maintain a flexible and extensible project structure. However, developing applications in TCA requires a deep understanding of how to organize and integrate individual modules to maintain state control and avoid unnecessary complexity. Let�s examine the main approaches to module implementation in TCA:</p>
+
+<ul>
+    <li><b>Separating Logic into Modules</b> � one of TCA's main principles is creating independent, easily testable modules. Each module, represented by a reducer associated with its actions and state, should easily integrate into parent components. Interfaces are used to connect to other parts of the application, allowing independent modules to be combined and state to be managed at various levels of the application hierarchy. The TCA approach emphasizes module reusability, which is especially important for large applications. This approach also enables a modular framework where each component can be independently developed and improved without affecting other parts of the system.</li>
+
+    <li><b>Using Environment to Manage Dependencies</b> � dependency management is highly important in TCA. TCA uses the <b>Environment</b> to pass dependencies, such as APIs, databases, or other third-party services. This not only makes the code more testable but also allows dependencies to be easily replaced during testing. When developing a solution for automatic TCA code generation, it is essential to consider the ability to create custom Environment types tailored to specific application requirements.</li>
+
+    <li><b>Asynchronous Effects and Side-Effect Management</b> � for asynchronous actions and side effects in TCA, the concept of <b>Effect</b> is used, allowing developers to define actions executed outside the reducer. It is essential to ensure that side effects do not disrupt state control, so in TCA, they are implemented through separate components that can be easily tested or replaced. This approach is especially beneficial for complex applications with numerous API interactions or complex data processing logic. The code generator should consider asynchronous dependencies and create templates that simplify working with effects.</li>
+</ul>
+
+<p>Using these approaches, combined with automatic code generation, helps standardize the architecture and minimize errors arising from manual implementation. TCA module auto-generation allows developers to focus on business logic and reduces the time spent configuring standard components. This study proposes automating the creation of all TCA main elements so developers can integrate and maintain a macOS-specific state management system more quickly.</p>
+
+			
+			<a name=p4></a>
+			<h2>4. Description of the Integrated Solution</h2>
+						
+			<p>The proposed solution is a system that automatically generates modules for TCA architecture based on specified parameters. This integrated solution offers the following capabilities to the user:</p>
+			<ul>
+				<li>Generation of ready-to-use code for TCA modules based on templates configured for macOS applications.</li>
+				<li>Module parameter configuration, such as dependencies, initial state, and required functions, allowing each module to be customized to specific requirements.</li>
+				<li>Integration with Xcode for simplified access and editing of created modules.</li>
+				<li>Automatic updating and refactoring of existing TCA modules, taking into account project architecture changes.</li>
+			</ul>
+			<p>This solution�s implementation includes developing templates based on Swift and TCA, which can be dynamically adapted depending on the provided parameters, allowing significant time savings in creating and modifying code. The system also provides options for adjusting the level of detail, usage of specific components and methods, and setting initial state values.</p>
+			
+			<a name=p5></a>
+			<h2>Conclusions</h2>
+			
+			<p>The development of an integrated solution for generating modules in TCA architecture for macOS provides several advantages, including faster development, reduced error likelihood, and improved code manageability. The study analyzed existing solutions and methods for automatic code generation. The developed solution enables TCA module integration in large macOS projects, providing flexibility and efficient module management. This opens up prospects for further research and improvement of tools for TCA development.</p>
+			
+			<a name=ref></a>
+			<h2>References</h2>
+			<ol>
+				<li><a name="ref1"></a>McPhee, D. The Composable Architecture Guide / D. McPhee // GitHub. � 2020.
+				<li><a name="ref2"></a>Swift. Using Swift for iOS and macOS Development / Apple Inc. � Apple Developer Documentation, 2021.
+				<li><a name="ref3"></a>Vanderbilt, J. Functional Programming in Swift / J. Vanderbilt. � O'Reilly, 2019.
+				<li><a name="ref4"></a>Groz, E. Modular Architecture in Swift: Principles and Patterns / E. Groz. � Swift Developer Blog, 2022.
+			</ol>
+		
+		</div> <!-- maintext -->
+	
+	</div> <!-- middleblock -->
+
+	<div id="menub">
+		<a class="mitemb" href="../index.htm">Resume</a>
+		<a class="mitemb" href="../bio/index.htm">Biography</a>
+		<a class="mitemb" href="../library/index.htm">Library</a>
+		<a class="mitemb" href="../links/index.htm">Links</a>
+	</div>
+
+</body>
+</html>
